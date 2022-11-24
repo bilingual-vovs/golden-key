@@ -1,0 +1,10 @@
+*{
+    overflow-x: hidden;
+}
+body{
+    background-color: #FFEFD6;
+}
+#root{
+    width: 100vw;
+    height: 100vh;
+}
