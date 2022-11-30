@@ -1,0 +1,8 @@
+body{
+    background-color: #0E5E6F;
+    margin: 0;
+}
+
+*{
+    transition-duration: 300ms;
+}

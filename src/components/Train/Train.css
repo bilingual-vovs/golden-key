@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+
+
+#train-box{
+    background-color: #3A8891;
+    position: fixed;
+    text-align: center;
+}
+
+@media (max-width: 1500px){
+    #train-box{
+        width: 60%;
+        height: 50%;
+        left: 20%;
+        top: 25%;
+    }
+}
+
+@media (min-width: 1500px) {
+    #train-box{
+        width: 40%;
+        height: 50%;
+        left: 30%;
+        top: 25%;
+    }
+}
+
+
+.key{
+    margin: 0;
+    font-family: Jockey One;
+    font-size: 96px;
+    font-weight: 400;
+    color: #F2DEBA;
+    line-height: 96px;
+}
+
+.key-container{
+    width: 100%;
+    height: 50%;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.word-in{
+    font-family: Jockey One;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+
+    background-color: #FFEFD6;
+    color: #0E5E6F;
+    width: 60%;
+    outline: none;
+    border: none;
+    padding: 0.25em;
+}
+
+
+.submit-btn{
+    background-color: #FFEFD6;
+    border: none;
+    outline: none;
+
+    color: #0E5E6F;
+    font-family: Jockey One;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+
+    margin-top: 7%;
+    padding: 0.1em;
+    width: 20%;
+}
+
+.submit-btn:hover{
+    background-color: #0E5E6F;
+    color: #F2DEBA;
+}
+.submit-btn:active{
+    width: 18%;
+    padding: 0em;
+}

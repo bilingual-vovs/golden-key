@@ -9,12 +9,15 @@ class App extends Component {
     render() {
         return (
             <div id='app'>
-                <Router>
-                    <Routes>
-                        <Route exact path='/trainTest' element={<Train/>}></Route>
-                        
-                    </Routes>
-                </Router>
+                <div className='container'>
+                    <Router>
+                        <Routes>
+                            <Route exact path='/trainTest' element={<Train/>}></Route>
+                            
+                        </Routes>
+                    </Router>
+                </div>
+                
                 
             </div>
         );
