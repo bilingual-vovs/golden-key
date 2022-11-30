@@ -1,0 +1,41 @@
+.train-box{
+    background-color: #3A8891;
+    margin: auto;
+    width: 50%;
+    height: 60%;
+    max-width: 100vmin;
+    max-height: 100vmin;
+    min-width: 150px;
+    min-height: 100px;
+    text-align: center;
+}
+
+.key{
+    font-family: monospace;
+    color: #F2DEBA;
+    position: absolute;
+
+}
+.value{
+    text-align: center;
+    outline: none;
+    border: solid #ffefd6 3px;
+    background-color: #3A8891;
+    font-family: monospace;
+    color: #F2DEBA;
+    width: 70%;
+    max-width: 40vw;
+    padding: 1% 0.5%;
+    font-size: 3vh;
+    height: 6%;
+}
+
+.value::placeholder{
+    color: #ffefd6;
+}
+
+.form{
+    display: block;
+    position: absolute;
+    top: 50%;
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 import './App.css'
-import Asker from './Asker/Asker';
+import Train from './Train/Train.jsx';
 
 
 class App extends Component {
@@ -11,9 +11,7 @@ class App extends Component {
             <div id='app'>
                 <Router>
                     <Routes>
-                        <Route path='/' element={<Asker/>}>
-                            
-                        </Route>
+                        <Route exact path='/trainTest' element={<Train/>}></Route>
                         
                     </Routes>
                 </Router>
