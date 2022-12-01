@@ -26,6 +26,21 @@
 }
 
 
+.correction{
+    font-family: Jockey One;
+    font-size: 24px;
+    font-weight: 400;
+    color: greenyellow;
+    height: 0;
+}
+
+.correction-box{
+    position: absolute;
+    width: 100%;
+    top: 44%;
+}
+
+
 .key{
     margin: 0;
     font-family: Jockey One;
