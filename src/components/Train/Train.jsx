@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import "./Train.css"
 import Loader from '../Loader/Loader';
+import Asking from './States/Asking';
+import Correct from './States/Correct';
+import Incorrect from './States/Incorrect';
+import Finished from './States/Finished';
 
 class Train extends Component {
 
@@ -18,7 +22,7 @@ class Train extends Component {
 
     shuffle(array) {
         let currentIndex = array.length,  randomIndex;
-        while (currentIndex != 0) {
+        while (currentIndex !== 0) {
           randomIndex = Math.floor(Math.random() * currentIndex);
           currentIndex--;
           [array[currentIndex], array[randomIndex]] = [
@@ -31,23 +35,34 @@ class Train extends Component {
     componentDidMount() {
         this.dict = this.shuffle(this.dict)
         this.setState({state: "asking", current: this.dict.pop()})
+        document.addEventListener("keypress", ({key}) => {
+            if (key === "Enter") this.next()
+        })
     }
 
     submit = (evt) => {
         evt.preventDefault()
         const {current} = this.state
+
+        this.answears.push({...this.state.current, ans: evt.target[0].value})
+
         if (current.value.toLowerCase() === evt.target[0].value.toLowerCase()){
             this.setState({state: "correct"})
             setTimeout(this.next, 500)
         }
         else {
             this.setState(({current}) => {
-                return {current: {...current, ans: evt.target[0].value}, state: "incorrect"}
+                return {current: {...current, ans: evt.target[0].value}}
             })
+            this.setState({state: "incorrect"})
         }
     }
 
-    next = () => {
+    next = (evt) => {
+        if (evt) evt.preventDefault()
+
+        if (this.state.state !== "incorrect" && this.state.state !== "correct") return
+
         if (this.dict.length !== 0){
             this.setState({state: "asking", current: this.dict.pop()})
         }
@@ -56,22 +71,19 @@ class Train extends Component {
         }
     }
 
+    componentWillUnmount() {
+        document.removeEventListener("keypress", ({key}) => {
+            if (key === "Enter") this.next()
+        })
+    }
+
     render() {
         const {state, current} = this.state
         const Train = () => {
             switch (state) {
                 case "asking":
                 return (
-                    <div id="train-box">
-                        <div className='key-container'>
-                            <h1 className='key'>{current.key}</h1>
-                        </div>
-                        <form onSubmit={this.submit}>
-                            <input className='word-in' type="text" placeholder='Word...' />
-                            <br/>
-                            <button className='submit-btn'>Submit</button>
-                        </form>
-                    </div>  
+                    <Asking submit={this.submit} current={current}/>  
                 )
 
                 case "startup":
@@ -87,42 +99,17 @@ class Train extends Component {
 
                 case "correct":
                     return (
-                        <div id="train-box">
-                            <div className='key-container'>
-                                <h1 style={{color: "greenyellow"}} className='key'>{"Correct!!!"}</h1>
-                            </div>
-                            <form onSubmit={this.next}>
-                                <input style={{color: "green"}} defaultValue={current.value} className='word-in' type="text" placeholder='Word...' />
-                                <br/>
-                                <button className='submit-btn'>Ok</button>
-                            </form>
-                        </div> 
+                        <Correct next={this.next} current={current}/>
                     )
 
                 case "incorrect":
                     return (
-                        <div id="train-box">
-                            <div className='key-container'>
-                                <h1 style={{color: "tomato"}} className='key'>{"Incorrect!!"}</h1>
-                            </div>
-                            <div className='correction-box'>
-                                <span className='correction'>{current.value}</span>
-                            </div>
-                            <form onSubmit={this.next}>
-                                <input style={{color: "tomato", textDecoration: "line-through", letterSpacing: "0.1em"}} defaultValue={current.ans} className='word-in' type="text" placeholder='Word...' />
-                                <br/>
-                                <button className='submit-btn'>Next</button>
-                            </form>
-                        </div> 
+                        <Incorrect current={current} next={this.next}/>
                     )
             
                 case "finished":
                     return (
-                        <div id="train-box">
-                            <div className='key-container'>
-                                <h1 className='key'>{"Congratulations"}</h1>
-                            </div>
-                        </div> 
+                        <Finished answears={this.answears}/>
                     )       
                 
 
