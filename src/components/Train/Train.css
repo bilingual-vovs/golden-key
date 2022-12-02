@@ -127,7 +127,7 @@ width: 11px;
 background: #ffefd6;
 }
 
-*::-webkit-scrollbar-thumb {
+.ans-list:-webkit-scrollbar-thumb {
     background-color: #3A8891;
     border-radius: 8px;
     border: 2px solid #FFEFD6;

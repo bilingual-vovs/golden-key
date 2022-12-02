@@ -87,6 +87,14 @@
     color: #F2DEBA;
 }
 
+.module-in{
+    background-color: #0E5E6F;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #F2DEBA;
+    width: 70%;
+}
+
 .list-itm{
     display: flex;
     margin: 1% auto;
@@ -118,4 +126,37 @@
     font-family: Jockey One;
     font-weight: 400;
     color: #0E5E6F;
+}
+
+
+.add-btn{
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: #FFEFD6;
+
+    font-family: Jockey One;
+    font-size: 4em;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+    
+    width: 1em;
+    height: 1em;
+
+    text-align: center;
+    padding: 0;
+    line-height: 0;
+    color: #0E5E6F;
+}
+
+.add-btn:hover{
+    background-color: #3A8891;
+    color: #F2DEBA;
+}
+
+
+
+.close-btn{
+    margin: auto 3% auto 0;
 }

@@ -1,7 +1,30 @@
 body{
     background-color: #0E5E6F;
     margin: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #0e5e6f #ffefd6;
 }
+
+
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #ffefd6 #0e5e6f;
+  }
+
+  *::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #0e5e6f;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ffefd6;
+    border-radius: 10px;
+    border: 6px solid #0e5e6f;
+  }
 
 *{
     transition-duration: 300ms;
